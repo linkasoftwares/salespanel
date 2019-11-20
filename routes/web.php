@@ -11,13 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('dashboard', function(){
-  return view('dashboard');
+// Route::get('/', function () {
+//     return view('layouts.next');
+// })->name('app');
+
+Route::group(['namespace' => 'Admin'], function ($admin) {
+    $admin->get('/', 'AdminController@index')->name('app');
+    $admin->group(['prefix' => 'products'], function($product){
+      $product->get('/', 'ProductController@index')->name('products');
+    });
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/log', function () {
+  return view('auth.login');
+});

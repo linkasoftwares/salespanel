@@ -7,12 +7,12 @@ use Illuminate\Http\Request;
 
 use App\Models\Delivery;
 
-class AdminController extends Controller
+class DeliveryController extends Controller
 {
     public function index()
     {
-        $totalDeliveries = Delivery::total();
+        $deliveries = Delivery::get();
 
-        return view('dashboard', compact('totalDeliveries'));
+        return view('admin.deliveries.all', compact('deliveries'));
     }
 }

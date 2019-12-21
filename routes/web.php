@@ -26,10 +26,13 @@ Route::group(['namespace' => 'Admin'], function ($admin) {
         $product->get('/', 'OrderController@index')->name('orders');
     });
     // Deliveries
-    // Pedidos
     $admin->group(['prefix' => 'entregas'], function($product){
-        $product->get('/', 'DeliverController@index')->name('deliveries');
-      });
+        $product->get('/', 'DeliveryController@index')->name('deliveries');
+    });
+    // Clients
+    $admin->group(['prefix' => 'clientes'], function($product){
+        $product->get('/', 'ClientController@index')->name('clients');
+    });
 });
 
 Auth::routes();

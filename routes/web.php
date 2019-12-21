@@ -17,9 +17,19 @@
 
 Route::group(['namespace' => 'Admin'], function ($admin) {
     $admin->get('/', 'AdminController@index')->name('app');
-    $admin->group(['prefix' => 'products'], function($product){
-      $product->get('/', 'ProductController@index')->name('products');
+    // Produtos
+    $admin->group(['prefix' => 'produtos'], function($product){
+        $product->get('/', 'ProductController@index')->name('products');
     });
+    // Pedidos
+    $admin->group(['prefix' => 'encomendas'], function($product){
+        $product->get('/', 'OrderController@index')->name('orders');
+    });
+    // Deliveries
+    // Pedidos
+    $admin->group(['prefix' => 'entregas'], function($product){
+        $product->get('/', 'DeliverController@index')->name('deliveries');
+      });
 });
 
 Auth::routes();

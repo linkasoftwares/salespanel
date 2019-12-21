@@ -31,13 +31,27 @@
     <li class="nav-item">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
         <i class="fas fa-fw fa-shopping-bag"></i>
-        <span>Produtos</span>
+        <span>Inventário</span>
       </a>
       <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Produtos em stock:</h6>
           <a class="collapse-item" href="{{ route('products') }}">Todos Produtos</a>
-          <a class="collapse-item" href="#">Stock</a>
+          <a class="collapse-item" href="{{ route('orders') }}">Pedidos</a>
+        </div>
+      </div>
+    </li>
+
+    <!-- Nav Item - Pages Collapse Menu -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDelivery" aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-shopping-bag"></i>
+        <span>Entregas</span>
+      </a>
+      <div id="collapseDelivery" class="collapse" aria-labelledby="collapseDelivery" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Entregas:</h6>
+          <a class="collapse-item" href="{{ route('deliveries') }}">Todas Entregas</a>
         </div>
       </div>
     </li>
@@ -52,6 +66,21 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <h6 class="collapse-header">Clientes:</h6>
           <a class="collapse-item" href="#">Todos Clientes</a>
+          <a class="collapse-item" href="#">Premium</a>
+        </div>
+      </div>
+    </li>
+
+    <!-- Nav Item - Utilities Collapse Menu -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePartners" aria-expanded="true" aria-controls="collapsePartners">
+        <i class="fas fa-fw fa-users"></i>
+        <span>Parceiros</span>
+      </a>
+      <div id="collapsePartners" class="collapse" aria-labelledby="headingUPartners" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <h6 class="collapse-header">Parceiros:</h6>
+          <a class="collapse-item" href="#">Marcas</a>
           <a class="collapse-item" href="#">Revendedores</a>
         </div>
       </div>
@@ -99,7 +128,7 @@
         </div>
       </div>
     </li>
-{{-- 
+{{--
     <!-- Nav Item - Charts -->
     <li class="nav-item">
       <a class="nav-link" href="charts.html">

@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Delivery extends Model
 {
-    protected function getTotal($value)
-    {
-        $this->count;
-    }
+    protected $fillable = [
+        'product_id', 'date', 'attributes',
+        'color_id', 'size_id', 'details'
+    ];
 }

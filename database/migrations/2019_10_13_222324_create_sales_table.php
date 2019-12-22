@@ -15,6 +15,19 @@ class CreateSalesTable extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('order_id');
+            $table->unsignedBigInteger('user_id');
+            $table->dateTimeTz('sale_date');
+            $table->float('price', 20.8);
+            $table->text('note')->nullable();
+
+            $table->foreign('order_id')
+                ->references('id')
+                ->on('orders');
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users');
             $table->timestamps();
         });
     }

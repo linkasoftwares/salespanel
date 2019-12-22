@@ -13,6 +13,6 @@ class ProductController extends Controller
     {
         $products = Product::paginate(30);
 
-        return view('products.all', compact('products'));
+        return view('admin.products.all', compact('products'));
     }
 }

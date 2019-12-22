@@ -6,13 +6,24 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Delivery;
+use App\Models\Order;
+use App\Models\Sale;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
     public function index()
     {
-        $totalDeliveries = Delivery::total();
+        $fromDate = Carbon::now()->startOfMonth();
+        $todate = Carbon::now()->today();
 
-        return view('dashboard', compact('totalDeliveries'));
+        $totalDeliveries = Delivery::whereBetween('created_at', array($fromDate, $todate))->count();
+
+        $totalOrders = Order::whereBetween('created_at', array($fromDate, $todate))->count();
+
+        // How much we make per month
+        $totalSalesPerMonth = Sale::whereBetween('created_at', array($fromDate, $todate))->avg('price');
+
+        return view('dashboard', compact('totalDeliveries', 'totalOrders', 'totalSalesPerMonth'));
     }
 }

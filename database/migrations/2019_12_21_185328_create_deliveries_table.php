@@ -15,6 +15,13 @@ class CreateDeliveriesTable extends Migration
     {
         Schema::create('deliveries', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('order_id');
+            $table->text('location');
+            $table->timestampTz('date');
+
+            $table->foreign('order_id')
+                ->references('id')
+                ->on('orders');
             $table->timestamps();
         });
     }

@@ -5,13 +5,13 @@
 <div class="container-fluid">
 
   <!-- Page Heading -->
-  <h1 class="h3 mb-2 text-gray-800">Clientes</h1>
-  <p class="mb-4">Lista de Clientes da <b>Estilo Bantu</b>.</p>
+  <h1 class="h3 mb-2 text-gray-800">Produtos</h1>
+  <p class="mb-4">Produtos da marca.</p>
 
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary">Clientes</h6>
+      <h6 class="m-0 font-weight-bold text-primary">Todos Produtos</h6>
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -20,31 +20,34 @@
             <tr>
               <th>ID</th>
               <th>Nome</th>
-              <th>Email</th>
-              <th>Telefone</th>
-              <th>Licalização</th>
-              <th>Rede Social</th>
+              <th>Preço</th>
+              <th>Descrição</th>
+              <th>Categoria</th>
+              <th>Imagem do produto</th>
+              <th>Opções</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>ID</th>
               <th>Nome</th>
-              <th>Email</th>
-              <th>Telefone</th>
-              <th>Licalização</th>
-              <th>Rede Social</th>
+              <th>Preço</th>
+              <th>Descrição</th>
+              <th>Categoria</th>
+              <th>Imagem do produto</th>
+              <th>Opções</th>
             </tr>
           </tfoot>
           <tbody>
-              @foreach ($clients as $client)
+              @foreach ($products as $product)
               <tr>
-                <td>{{ $client->id }}</td>
-                <td>{{ $client->name }}</td>
-                <td>{{ $client->email }}</td>
-                <td>{{ $client->phone_number }}</td>
-                <td>{{ $client->location }}</td>
-                <td>{{ $client->social_link }}</td>
+                <td>{{ $product->id }}</td>
+                <td>{{ $product->name }}</td>
+                <td>{{ number_format($product->price) }}</td>
+                <td>{{ $product->description }}</td>
+                <td>{{ $product->category->name }}</td>
+                <td><img src="{{ asset($product->image) }}" alt="{{ $product->name }}"></td>
+                <td></td>
               </tr>
               @endforeach
           </tbody>

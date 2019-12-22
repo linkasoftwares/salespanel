@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 use App\Models\Delivery;
@@ -24,6 +25,9 @@ class AdminController extends Controller
         // How much we make per month
         $totalSalesPerMonth = Sale::whereBetween('created_at', array($fromDate, $todate))->avg('price');
 
-        return view('dashboard', compact('totalDeliveries', 'totalOrders', 'totalSalesPerMonth'));
+        // Total clients
+        $totalClients = Client::count();
+
+        return view('dashboard', compact('totalDeliveries', 'totalOrders', 'totalSalesPerMonth', 'totalClients'));
     }
 }

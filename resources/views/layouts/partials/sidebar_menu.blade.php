@@ -67,6 +67,7 @@
           <h6 class="collapse-header">Clientes:</h6>
           <a class="collapse-item" href="{{ route('clients') }}">Todos Clientes</a>
           <a class="collapse-item" href="#">Premium</a>
+          <a class="collapse-item" href="{{ route('clients.new') }}"><i class="fa fa-plus"></i> Novo Cliente</a>
         </div>
       </div>
     </li>

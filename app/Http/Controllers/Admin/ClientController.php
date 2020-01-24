@@ -15,4 +15,16 @@ class ClientController extends Controller
 
         return view('admin.clients.all', compact('clients'));
     }
+
+    public function newClient()
+    {
+        return view('admin.clients.new');
+    }
+
+    public function registerClient(Request $request)
+    {
+        $client = Client::create($request->all());
+
+        return redirect()->route('clients');
+    }
 }

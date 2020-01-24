@@ -19,32 +19,33 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nome</th>
-              <th>Email</th>
-              <th>Telefone</th>
-              <th>Licalização</th>
-              <th>Rede Social</th>
+              <th>Produto</th>
+              <th>Cor</th>
+              <th>Tamanho</th>
+              <th>Detalhes</th>
+              <th>Data</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
               <th>ID</th>
-              <th>Nome</th>
-              <th>Email</th>
-              <th>Telefone</th>
-              <th>Licalização</th>
-              <th>Rede Social</th>
+              <th>Produto</th>
+              <th>Cor</th>
+              <th>Tamanho</th>
+              <th>Detalhes</th>
+              <th>Data</th>
             </tr>
           </tfoot>
           <tbody>
-              @foreach ($clients as $client)
+              @foreach ($orders as $order)
               <tr>
-                <td>{{ $client->id }}</td>
-                <td>{{ $client->name }}</td>
-                <td>{{ $client->email }}</td>
-                <td>{{ $client->phone_number }}</td>
-                <td>{{ $client->location }}</td>
-                <td>{{ $client->social_link }}</td>
+                <td>{{ $order->id }}</td>
+                <td>{{ $order->product->name }}</td>
+                <td>{{ $order->color->name }}</td>
+                <td>{{ $order->size->name }}</td>
+                <td>{{ $order->phone_number }}</td>
+                <td>{{ $order->location }}</td>
+                <td>{{ $order->social_link }}</td>
               </tr>
               @endforeach
           </tbody>

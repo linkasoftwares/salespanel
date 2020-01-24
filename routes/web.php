@@ -32,6 +32,8 @@ Route::group(['namespace' => 'Admin'], function ($admin) {
     // Clients
     $admin->group(['prefix' => 'clientes'], function($product){
         $product->get('/', 'ClientController@index')->name('clients');
+        $product->get('/novo', 'ClientController@newClient')->name('clients.new');
+        $product->post('/novo', 'ClientController@registerClient')->name('clients.register');
     });
 });
 
